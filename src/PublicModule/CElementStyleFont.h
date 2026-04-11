@@ -21,7 +21,7 @@ public:
     explicit CElementStyleFont(QObject *parent = nullptr);
 
 public slots:
-    void init(int Large = 12,int DefaultFont = 8,int Small = 8 ,int Title = 10);
+    void init(int Large = 13,int DefaultFont = 10,int Small = 8 ,int Title = 11);
 };
 
 #endif // CELEMENTSTYLEFONT_H

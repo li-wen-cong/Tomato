@@ -18,11 +18,22 @@
 
 （3）一些使用到的宏定义
 
-## 2、CoreModule
+### 2、CoreModule
 
 程序核心功能实现
 
-## 3、GSF_Controls
+### 3、GSF_Controls
 
 使用QML实现的一系列控件，搭配**PublicModule**模块实现UI定制
 
+
+
+## Preface
+
+主要用来练习QT QML使用
+
+（1）窗口的各种状态：最大、最小、置顶等
+
+（2）调用系统提示
+
+（3）提示音播放

@@ -58,46 +58,29 @@ FocusScope
                 }
             }
         }
-        Rectangle
+        ButtonWidget
         {
             height: 40 * cStyle.DPI
             width: 50 * cStyle.DPI
-            color: cColor.BackgroundPage
-            anchors.left: parent.left
-            anchors.leftMargin: cStyle.SpacingSmall
-            anchors.verticalCenter: parent.verticalCenter
-            radius: cStyle.RadiusDefault
-            GSF_Icon_SVG
+            color: isHover ? cColor.BrandBase : cColor.BackgroundPage
+            source: isHome ? "qrc:/res/1_Menu.svg" : "qrc:/res/8_Home.svg"
+            iconColor:cColor.BrandDark
+            onClicked:
             {
-                width: 20 * cStyle.DPI
-                height: width
-                anchors.centerIn: parent
-                source: isHome ? "qrc:/res/1_Menu.svg" : "qrc:/res/8_Home.svg"
-                color: cColor.BrandDark
-            }
-            MouseArea
-            {
-                anchors.fill: parent
-                hoverEnabled: true
-                onEntered: parent.color = cColor.BrandBase
-                onExited: parent.color = cColor.BackgroundPage
-                onClicked:
+                if(isHome)
                 {
-                    if(isHome)
-                    {
-                        GSF_Global.singleStackView.pushPage(Qt.resolvedUrl("qrc:/Page/MenuPage.qml"),3,200)
-                    }
-                    else
-                    {
-                        cTomato.Work = configuration.tomato.workDuration
-                        cTomato.ShortRest = configuration.tomato.shortRestDuration
-                        cTomato.LongRest = configuration.tomato.longRestDuration
-                        cTomato.Rounds = configuration.tomato.rounds
-
-                        GSF_Global.singleStackView.home()
-                    }
-                    isHome = !isHome
+                    GSF_Global.singleStackView.pushPage(Qt.resolvedUrl("qrc:/Page/MenuPage.qml"),3,200)
                 }
+                else
+                {
+                    cTomato.Work = configuration.tomato.workDuration
+                    cTomato.ShortRest = configuration.tomato.shortRestDuration
+                    cTomato.LongRest = configuration.tomato.longRestDuration
+                    cTomato.Rounds = configuration.tomato.rounds
+
+                    GSF_Global.singleStackView.home()
+                }
+                isHome = !isHome
             }
         }
         Row
@@ -111,12 +94,21 @@ FocusScope
             {
                 height: parent.height
                 width: 50 * cStyle.DPI
-                color: isHover ? cColor.BrandBase : cColor.BackgroundPage
-                source: "qrc:/res/9_Tips.svg"
-                iconColor:cColor.BrandDark
+                color: isHover || fixed ? cColor.BrandBase : cColor.BackgroundPage
+                source: "qrc:/res/19_Fixed.svg"
+                iconColor:  cColor.BrandDark
+                property bool fixed: false
                 onClicked:
                 {
-                    GSF_Global.singleTrayIcon.showNotification("番茄提醒", "25分钟已到，休息一下吧！🍅")
+                    if(!fixed)
+                    {
+                        control.flags = control.flags | Qt.WindowStaysOnTopHint
+                    }
+                    else
+                    {
+                        control.flags = control.flags & ~Qt.WindowStaysOnTopHint
+                    }
+                    fixed = !fixed
                 }
             }
             ButtonWidget

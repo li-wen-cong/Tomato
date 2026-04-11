@@ -10,6 +10,11 @@ FocusScope
 {
     id:root
 
+    Component.onCompleted:
+    {
+        init()
+    }
+
     function timeTransition(ms)
     {
         if (ms <= 0)
@@ -27,8 +32,13 @@ FocusScope
         return minutesStr + ":" + secondsStr;
     }
 
-    Component.onCompleted:
+    function init()
     {
+        cTomato.Work = GSF_Global.config.tomato.workDuration
+        cTomato.ShortRest = GSF_Global.config.tomato.shortRestDuration
+        cTomato.LongRest = GSF_Global.config.tomato.longRestDuration
+        cTomato.Rounds = GSF_Global.config.tomato.rounds
+
         annulusProgressBar.to = cTomato.Work * 60 * 1000
         annulusProgressBar.stage = qsTr("Work")
         annulusProgressBar.value = 0

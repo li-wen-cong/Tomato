@@ -69,7 +69,7 @@ Rectangle
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.horizontalCenterOffset: -_text.contentWidth / 2 - cStyle.SpacingSmall
                     }
-                    GSF_Text_Title
+                    GSF_Text_Default
                     {
                         id:_text
                         text:modelData.name
@@ -78,6 +78,7 @@ Rectangle
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.horizontalCenterOffset: 12 * cStyle.DPI + cStyle.SpacingSmall
+                        color:swipeView.currentIndex === index ? cColor.BrandDark : cColor.TextPrimary
                     }
                 }
             }

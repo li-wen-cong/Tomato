@@ -7,6 +7,7 @@ Item
 
     property alias tomato: _Tomato
     property alias tips: _Tips
+    property alias settings: _Settings
 
     property string filePath: cTomato.configFilePath()
     Settings
@@ -31,5 +32,18 @@ Item
         property string shortRest: "Rest now, focus better later."
         property string longRest: "You finished a chapter. Now take an intermission."
         property string finish:"You're not a machine. But you're a focused human."
+    }
+
+    Settings
+    {
+        id:_Settings
+        fileName:filePath
+        category: "Settings"
+
+        property int theme: 2           //主题
+        property real volume: 0.5       //音量
+        property int shortRingtone: 0   //提示音
+        property int longRingtone: 0
+        property int finishRingtone: 0
     }
 }

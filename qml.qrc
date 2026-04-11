@@ -47,5 +47,11 @@
         <file>res/18_Reset.svg</file>
         <file>Configuration.qml</file>
         <file>res/About.png</file>
+        <file>GSF_Controls/Button/GSF_Button_Horizontal.qml</file>
+        <file>GSF_Controls/Slider/GSF_Slider.qml</file>
+        <file>GSF_Controls/ComboBox/GSF_ComboBox.qml</file>
+        <file>GSF_Controls/Input/GSF_LineEdit.qml</file>
+        <file>GSF_Controls/Input/GSF_TextArea.qml</file>
+        <file>res/19_Fixed.svg</file>
     </qresource>
 </RCC>

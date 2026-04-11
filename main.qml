@@ -23,10 +23,7 @@ ApplicationWindow
 
         loader.setSource("qrc:/GSF_Controls/View/GSF_StackView.qml")
 
-        cTomato.Work = configuration.tomato.workDuration
-        cTomato.ShortRest = configuration.tomato.shortRestDuration
-        cTomato.LongRest = configuration.tomato.longRestDuration
-        cTomato.Rounds = configuration.tomato.rounds
+        cColor.init(configuration.settings.theme)
     }
 
     FramelessWindow
