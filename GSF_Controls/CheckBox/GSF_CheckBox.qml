@@ -13,8 +13,8 @@ Item
     height: Math.max(label.height, boxSize)
     // 自定义属性
     property bool checked: false
-    property int boxSize: cStyle.DPI * 20
-    property int spacing: cStyle.DPI * 8
+    property int boxSize: cStyle.DPI * 10
+    property int spacing: cStyle.DPI * 4
 
     property alias text: label.text
     property alias radius: checkbox.radius

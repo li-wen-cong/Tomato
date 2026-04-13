@@ -9,8 +9,8 @@ FocusScope
     Column
     {
         spacing: cStyle.SpacingDefault
-        width: 300 * cStyle.DPI
-        height: 100 * cStyle.DPI
+        width: 150 * cStyle.DPI
+        height: 50 * cStyle.DPI
         anchors.left: parent.left
         anchors.leftMargin: cStyle.SpacingDefault
         GSF_Text_Large
@@ -34,7 +34,7 @@ FocusScope
         rowSpacing: cStyle.SpacingDefault
         columnSpacing: cStyle.SpacingDefault
         anchors.top: parent.top
-        anchors.topMargin: 100 * cStyle.DPI
+        anchors.topMargin: 50 * cStyle.DPI
         anchors.left: parent.left
         anchors.leftMargin: cStyle.SpacingDefault
         GSF_Button

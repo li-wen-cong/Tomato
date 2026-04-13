@@ -29,8 +29,8 @@ Button
     property bool loading: false
 
     enabled: !loading && root.enabled
-    implicitHeight: 40 * cStyle.DPI
-    implicitWidth: 120 * cStyle.DPI
+    implicitHeight: 20 * cStyle.DPI
+    implicitWidth: 60 * cStyle.DPI
 
     spacing: 0
     padding:0

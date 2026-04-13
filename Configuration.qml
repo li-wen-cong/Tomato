@@ -42,8 +42,7 @@ Item
 
         property int theme: 2           //主题
         property real volume: 0.5       //音量
-        property int shortRingtone: 0   //提示音
-        property int longRingtone: 0
-        property int finishRingtone: 0
+        property int loop: 3            //循环次数
+        property int ringtone: 0        //提示音
     }
 }

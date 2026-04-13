@@ -11,7 +11,7 @@ void CElementStyleFont::init(int Large, int DefaultFont, int Small, int Title)
     this->setLarge(QFont("Microsoft YaHei", Large, QFont::Bold));
     this->setDefaultFont(QFont("Microsoft YaHei", DefaultFont, QFont::Normal));
     this->setSmall(QFont("Microsoft YaHei", Small, QFont::Light));
-    this->setTitle(QFont("Microsoft YaHei", Title, QFont::Black));
+    this->setTitle(QFont("Microsoft YaHei", Title, QFont::Black));    
 #else
     this->setLarge(QFont("Noto Sans", Large, QFont::Bold));
     this->setDefaultFont(QFont("Noto Sans", DefaultFont, QFont::Normal));

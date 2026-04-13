@@ -25,7 +25,7 @@ Rectangle
     {
         id:tabBar
         width: parent.width
-        height: 50 * cStyle.DPI
+        height: 25 * cStyle.DPI
         anchors.bottom: parent.bottom
         background: Rectangle
         {
@@ -39,7 +39,7 @@ Rectangle
             TabButton
             {
                 anchors.top: parent.top
-                height: 50 * cStyle.DPI
+                height: 25 * cStyle.DPI
                 background: FocusScope
                 {
                     Rectangle
@@ -61,7 +61,7 @@ Rectangle
                     GSF_Icon_SVG
                     {
                         id:_icon
-                        width: 24 * cStyle.DPI
+                        width: 12 * cStyle.DPI
                         height: width
                         anchors.verticalCenter: parent.verticalCenter
                         source: modelData.icon
@@ -77,7 +77,7 @@ Rectangle
                         verticalAlignment: Text.AlignVCenter
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
-                        anchors.horizontalCenterOffset: 12 * cStyle.DPI + cStyle.SpacingSmall
+                        anchors.horizontalCenterOffset: 6 * cStyle.DPI + cStyle.SpacingSmall
                         color:swipeView.currentIndex === index ? cColor.BrandDark : cColor.TextPrimary
                     }
                 }
@@ -88,7 +88,7 @@ Rectangle
     {
         id:swipeView
         width: parent.width
-        height: parent.height - 50 * cStyle.DPI
+        height: parent.height - 25 * cStyle.DPI
         anchors.top: parent.top
         currentIndex: tabBar.currentIndex
         clip: true

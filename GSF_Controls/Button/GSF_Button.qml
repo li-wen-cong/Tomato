@@ -27,8 +27,8 @@ Button
     property bool loading: false
 
     enabled: !loading && root.enabled
-    implicitHeight: 40 * cStyle.DPI
-    implicitWidth: 120 * cStyle.DPI
+    implicitHeight: 20 * cStyle.DPI
+    implicitWidth: 60 * cStyle.DPI
 
     property bool other:
     {
@@ -41,14 +41,14 @@ Button
         Loader
         {
             active: loading
-            width: 18 * cStyle.DPI
+            width: 9 * cStyle.DPI
             height: width
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.leftMargin: cStyle.SpacingDefault
             sourceComponent: Item
             {
-                width: 18 * cStyle.DPI
+                width: 9 * cStyle.DPI
                 height: width
                 Rectangle
                 {
@@ -75,7 +75,7 @@ Button
         {
             visible: iconSource !== "" && !loading
             source: iconSource
-            width: visible ? 18 * cStyle.DPI : 0
+            width: visible ? 9 * cStyle.DPI : 0
             height: width
             anchors.left: parent.left
             anchors.leftMargin: cStyle.SpacingDefault
@@ -87,7 +87,7 @@ Button
             text: root.text
             color: textColor
             opacity: root.enabled ? 1.0 : 0.6
-            width: other ? root.width : root.width - 18 * cStyle.DPI - 2 * cStyle.SpacingDefault
+            width: other ? root.width : root.width - 9 * cStyle.DPI - 2 * cStyle.SpacingDefault
             height: parent.height
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter

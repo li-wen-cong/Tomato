@@ -8,7 +8,7 @@ Menu
     property bool buttonIsHover:false
     property bool isHover:false
     property alias timer:closeTimer
-    property real specifiedWidth:cStyle.DPI * 160
+    property real specifiedWidth:cStyle.DPI * 80
 
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
                             specifiedWidth)
@@ -20,8 +20,8 @@ Menu
     delegate: GSF_MenuItem{}
     background: Rectangle
     {
-        implicitWidth: cStyle.DPI * 160
-        implicitHeight: 40 * cStyle.DPI
+        implicitWidth: cStyle.DPI * 80
+        implicitHeight: 20 * cStyle.DPI
         color: cColor.BackgroundBase
         border.width: 1
         border.color: cColor.BorderBase

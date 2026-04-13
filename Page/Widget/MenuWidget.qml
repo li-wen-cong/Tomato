@@ -18,7 +18,7 @@ Rectangle
     GSF_Icon_SVG
     {
         id:icon
-        width: 20 * cStyle.DPI
+        width: 10 * cStyle.DPI
         height: width
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
@@ -30,7 +30,7 @@ Rectangle
         id:body
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        anchors.leftMargin: 20 * cStyle.DPI + cStyle.SpacingLarge + cStyle.SpacingDefault
+        anchors.leftMargin: 10 * cStyle.DPI + cStyle.SpacingLarge + cStyle.SpacingDefault
         color: itemColor
     }
     MouseArea

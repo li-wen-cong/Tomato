@@ -22,7 +22,7 @@ Item
         {
             text: String("%1:00").arg(workDuration.value)
             width: parent.width * 0.2
-            height: 30 * cStyle.DPI
+            height: 15 * cStyle.DPI
             anchors.horizontalCenter: parent.horizontalCenter
             theme: GSF_Button.Variant.Primary
             plain:true
@@ -30,7 +30,7 @@ Item
         Row
         {
             width: parent.width
-            height: 20 * cStyle.DPI
+            height: 10 * cStyle.DPI
             GSF_Text_Small
             {
                 width: parent.width * 0.2
@@ -73,7 +73,7 @@ Item
         {
             text: String("%1:00").arg(shortRestDuration.value)
             width: parent.width * 0.2
-            height: 30 * cStyle.DPI
+            height: 15 * cStyle.DPI
             anchors.horizontalCenter: parent.horizontalCenter
             theme: GSF_Button.Variant.Success
             plain:true
@@ -81,7 +81,7 @@ Item
         Row
         {
             width: parent.width
-            height: 20 * cStyle.DPI
+            height: 10 * cStyle.DPI
             GSF_Text_Small
             {
                 width: parent.width * 0.2
@@ -123,7 +123,7 @@ Item
         {
             text: String("%1:00").arg(longRestDuration.value)
             width: parent.width * 0.2
-            height: 30 * cStyle.DPI
+            height: 15 * cStyle.DPI
             anchors.horizontalCenter: parent.horizontalCenter
             theme: GSF_Button.Variant.Warning
             plain:true
@@ -131,7 +131,7 @@ Item
         Row
         {
             width: parent.width
-            height: 20 * cStyle.DPI
+            height: 10 * cStyle.DPI
             GSF_Text_Small
             {
                 width: parent.width * 0.2
@@ -173,7 +173,7 @@ Item
         {
             text: String("%1:00").arg(rounds.value)
             width: parent.width * 0.2
-            height: 30 * cStyle.DPI
+            height: 15 * cStyle.DPI
             anchors.horizontalCenter: parent.horizontalCenter
             theme: GSF_Button.Variant.Info
             plain:true
@@ -181,7 +181,7 @@ Item
         Row
         {
             width: parent.width
-            height: 20 * cStyle.DPI
+            height: 10 * cStyle.DPI
             GSF_Text_Small
             {
                 width: parent.width * 0.2
@@ -222,8 +222,8 @@ Item
         GSF_Button
         {
             text: qsTr("Reset Defaults")
-            width: 150 * cStyle.DPI
-            height: 40 * cStyle.DPI
+            width: 75 * cStyle.DPI
+            height: 20 * cStyle.DPI
             anchors.horizontalCenter: parent.horizontalCenter
             theme: GSF_Button.Variant.Danger
             plain:true

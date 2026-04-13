@@ -23,7 +23,7 @@ T.MenuSeparator
     {
         id:_Text
         verticalAlignment:Text.AlignVCenter
-        leftPadding: 5 * cStyle.DPI
+        leftPadding: 2 * cStyle.DPI
     }
     background: Rectangle
     {

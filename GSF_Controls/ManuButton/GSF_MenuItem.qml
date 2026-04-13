@@ -13,8 +13,8 @@ MenuItem
 
     property string note: ""
 
-    implicitWidth: 160 * cStyle.DPI
-    implicitHeight: 40 * cStyle.DPI
+    implicitWidth: 80 * cStyle.DPI
+    implicitHeight: 20 * cStyle.DPI
 
     padding: cStyle.SpacingDefault
 
@@ -60,7 +60,7 @@ MenuItem
     {
         id: item_arrow
         visible: control.subMenu
-        height: cStyle.DPI * 20
+        height: cStyle.DPI * 10
         width: height
         anchors.verticalCenter:parent.verticalCenter
         x: parent.width - width

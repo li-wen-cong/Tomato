@@ -5,6 +5,7 @@ Slider
 {
     id: root
     value: 0.5
+    orientation: Qt.Vertical  // 关键：声明为垂直方向
 
     enum Variant
     {
@@ -16,7 +17,6 @@ Slider
         Danger
     }
     property int theme: 0
-
 
     readonly property color baseColor:
     {
@@ -57,29 +57,36 @@ Slider
         }
     }
 
+    // 竖向滑块的背景（轨道）
     background: Rectangle
     {
-        x: root.leftPadding
-        y: root.topPadding + root.availableHeight / 2 - height / 2
-        implicitWidth: 200
-        implicitHeight: 4
-        width: root.availableWidth
-        height: implicitHeight
+        x: root.leftPadding + root.availableWidth / 2 - width / 2
+        y: root.topPadding
+        implicitWidth: 4
+        implicitHeight: 200
+        width: implicitWidth
+        height: root.availableHeight
         radius: 2
-        color:cColor.FillBase
+        color: cColor.FillBase
+
+        // 填充部分（从下往上填充，与视觉位置对应）
         Rectangle
         {
-            width: root.visualPosition * parent.width
-            height: parent.height
-            radius: parent.height / 2
+            // 竖向：Y轴从 visualPosition * height 开始，填到最底部
+            y: root.visualPosition * parent.height
+            width: parent.width
+            height: parent.height - y
+            radius: parent.width / 2
             color: baseColor
         }
     }
 
+    // 竖向滑块的手柄
     handle: Rectangle
     {
-        x: root.leftPadding + root.visualPosition * (root.availableWidth - width)
-        y: root.topPadding + root.availableHeight / 2 - height / 2
+        x: root.leftPadding + root.availableWidth / 2 - width / 2
+        // 竖向：Y轴位置随 visualPosition 变化
+        y: root.topPadding + root.visualPosition * (root.availableHeight - height)
         width: 10 * cStyle.DPI
         height: width
         radius: width / 2

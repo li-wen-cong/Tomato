@@ -1,8 +1,10 @@
 import QtQuick 2.12
+import QtMultimedia 5.12
 
 import "./Widget"
 import "../GSF_Controls/Button"
 import "../GSF_Controls/Text"
+import "../GSF_Controls/Slider"
 
 import GSF_Controls 1.0
 
@@ -81,6 +83,26 @@ FocusScope
         }
         onTomatoTips:
         {
+            soundEffect.stop()
+            switch(GSF_Global.config.settings.ringtone)
+            {
+            case 0:
+                soundEffect.source = "qrc:/res/wav/Comic - Birds taking off.wav"
+                break
+            case 1:
+                soundEffect.source = "qrc:/res/wav/Jesus College Clock.wav"
+                break
+            case 2:
+                soundEffect.source = "qrc:/res/wav/Cuckoo only.wav"
+                break
+            case 3:
+                soundEffect.source = "qrc:/res/wav/Cuckoo & chimes.wav"
+                break
+            }
+            soundEffect.volume = GSF_Global.config.settings.volume
+            soundEffect.loops = GSF_Global.config.settings.loop
+            soundEffect.play()
+
             switch(tips)
             {
             case 1://短休息
@@ -94,6 +116,12 @@ FocusScope
                 break;
             }
         }
+    }
+
+    SoundEffect
+    {
+        id:soundEffect
+        source: "qrc:/res/wav/Comic - Birds taking off.wav"
     }
 
     AnnulusProgressBar
@@ -138,7 +166,6 @@ FocusScope
         anchors.bottom: parent.bottom
         anchors.bottomMargin: cStyle.SpacingDefault
         radius: cStyle.RadiusDefault
-
         GSF_Button_Image
         {
             source: "qrc:/res/18_Reset.svg"
@@ -224,6 +251,75 @@ FocusScope
                 {
                     cTomato.forward()
                 }
+            }
+        }
+
+        Rectangle
+        {
+            width: root.width * 0.08
+            height: width
+            color: cColor.BackgroundOverlay
+            anchors.bottom: parent.verticalCenter
+            anchors.bottomMargin: -root.width * 0.04
+            anchors.right: parent.right
+            anchors.rightMargin: cStyle.SpacingLarge
+            clip: true
+            GSF_Slider_Vertical
+            {
+                width: parent.width * 0.9
+                height: parent.height * 0.9 - root.width * 0.08
+                anchors.top: parent.top
+                anchors.topMargin: parent.height * 0.05
+                from: 0
+                to:1
+                value: GSF_Global.config.settings.volume
+                theme: GSF_Slider_Vertical.Variant.Success
+                visible: parent.width < parent.height
+                onValueChanged:
+                {
+                    GSF_Global.config.settings.volume = value
+                }
+            }
+            GSF_Button_Image
+            {
+                id:volume
+                source: GSF_Global.config.settings.volume !== 0 ? "qrc:/res/21_RingtoneOpen.svg" : "qrc:/res/20_RingtoneClose.svg"
+                width:root.width * 0.08
+                height: width
+                round:true
+                plain:true
+                theme:GSF_Button_Image.Variant.Success
+                anchors.bottom: parent.bottom
+                onClicked:
+                {
+                    if(GSF_Global.config.settings.volume === 0)
+                    {
+                        GSF_Global.config.settings.volume = 0.5
+                    }
+                    else
+                    {
+                        GSF_Global.config.settings.volume = 0
+                    }
+                }
+            }
+            MouseArea
+            {
+                anchors.fill: parent
+                hoverEnabled: true
+                propagateComposedEvents: true
+                onEntered:
+                {
+                    parent.width = root.width * 0.08
+                    parent.height = root.height * 0.4
+                }
+                onExited:
+                {
+                    parent.width = root.width * 0.08
+                    parent.height = parent.width
+                }
+                onClicked: mouse.accepted = false
+                onPressed: mouse.accepted = false
+                onReleased: mouse.accepted = false
             }
         }
     }

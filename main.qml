@@ -35,7 +35,7 @@ ApplicationWindow
         {
             id:loader
             width: parent.width - cStyle.SpacingSmall * 2
-            height: parent.height - cStyle.SpacingSmall - 45 * cStyle.DPI
+            height: parent.height - cStyle.SpacingSmall - 26 * cStyle.DPI
             source: ""
             anchors.bottom: parent.bottom
             anchors.bottomMargin: cStyle.SpacingSmall

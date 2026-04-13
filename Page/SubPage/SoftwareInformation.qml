@@ -37,8 +37,8 @@ Item
         Item{height: 1;width: 1}
         GSF_Button_Horizontal
         {
-            width: 120 * cStyle.DPI
-            height: 40 * cStyle.DPI
+            width: 80 * cStyle.DPI
+            height: 25 * cStyle.DPI
             source: "qrc:/res/About.png"
             text: "@Github"
             theme:GSF_Button_Image.Variant.Primary

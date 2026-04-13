@@ -42,7 +42,7 @@ T.ComboBox
             text: modelData
             anchors.fill: parent
             verticalAlignment:Text.AlignVCenter
-            leftPadding:cStyle.DPI * 10
+            leftPadding:cStyle.DPI * 5
             color: cColor.TextPrimary
         }
         highlighted: control.highlightedIndex === index
@@ -56,8 +56,8 @@ T.ComboBox
     indicator: FocusScope
     {
         id: canvas
-        width: cStyle.DPI * 30
-        height: cStyle.DPI * 6
+        width: cStyle.DPI * 15
+        height: cStyle.DPI * 4
         anchors.verticalCenter:parent.verticalCenter
         anchors.right:parent.right
         GSF_Text_Large
@@ -65,7 +65,7 @@ T.ComboBox
             text:"⌵"
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
-            property real offset: -parent.height * 0.35
+            property real offset: -parent.height * 0.55
             anchors.verticalCenterOffset: control.down ? -offset : offset
             rotation: control.down ? 180 : 0
         }
@@ -77,7 +77,7 @@ T.ComboBox
         text: control.displayText
         color:control.enabled ? cColor.TextPrimary : cColor.BorderExtraLight
         verticalAlignment:Text.AlignVCenter
-        leftPadding:cStyle.DPI * 5
+        leftPadding:cStyle.DPI * 2
         elide: Text.ElideRight
     }
 
@@ -107,7 +107,7 @@ T.ComboBox
     popup: T.Popup
     {
         z:1
-        y: control.height + cStyle.DPI * 2
+        y: control.height + cStyle.DPI * 1
         width: control.width
         height: control.count > 8 ? control.height * 8 : control.height * control.count
         background: Rectangle

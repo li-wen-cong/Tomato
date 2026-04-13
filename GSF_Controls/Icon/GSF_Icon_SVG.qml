@@ -11,9 +11,12 @@ Image
         return s.endsWith(".svg") || s.endsWith(".svgz")
     }
     mipmap:true
+    smooth: true
     layer.enabled: isSvg
     layer.effect: ColorOverlay
     {
         color: root.color
     }
+    layer.smooth: true
+    layer.samples: 4
 }

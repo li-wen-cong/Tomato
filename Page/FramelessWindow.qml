@@ -19,7 +19,7 @@ FocusScope
     Rectangle
     {
         width: parent.width
-        height: 46 * cStyle.DPI
+        height: 26 * cStyle.DPI
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
         color: cColor.BackgroundPage
@@ -60,11 +60,14 @@ FocusScope
         }
         ButtonWidget
         {
-            height: 40 * cStyle.DPI
-            width: 50 * cStyle.DPI
+            height: 20 * cStyle.DPI
+            width: 25 * cStyle.DPI
             color: isHover ? cColor.BrandBase : cColor.BackgroundPage
             source: isHome ? "qrc:/res/1_Menu.svg" : "qrc:/res/8_Home.svg"
             iconColor:cColor.BrandDark
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            anchors.leftMargin: cStyle.SpacingDefault
             onClicked:
             {
                 if(isHome)
@@ -85,7 +88,7 @@ FocusScope
         }
         Row
         {
-            height: 40 * cStyle.DPI
+            height: 20 * cStyle.DPI
             spacing: 0
             anchors.right: parent.right
             anchors.rightMargin: cStyle.SpacingSmall
@@ -93,7 +96,7 @@ FocusScope
             ButtonWidget
             {
                 height: parent.height
-                width: 50 * cStyle.DPI
+                width: 25 * cStyle.DPI
                 color: isHover || fixed ? cColor.BrandBase : cColor.BackgroundPage
                 source: "qrc:/res/19_Fixed.svg"
                 iconColor:  cColor.BrandDark
@@ -114,7 +117,7 @@ FocusScope
             ButtonWidget
             {
                 height: parent.height
-                width: 50 * cStyle.DPI
+                width: 25 * cStyle.DPI
                 color: isHover ? cColor.BrandBase : cColor.BackgroundPage
                 source: "qrc:/res/7_Min.svg"
                 iconColor:cColor.BrandDark
@@ -133,7 +136,7 @@ FocusScope
             ButtonWidget
             {
                 height: parent.height
-                width: 50 * cStyle.DPI
+                width: 25 * cStyle.DPI
                 color: isHover ? cColor.DangerBase : cColor.BackgroundPage
                 source: "qrc:/res/4_Close.svg"
                 iconColor:cColor.BrandDark

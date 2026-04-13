@@ -7,8 +7,8 @@ import "../../GSF_Controls/ToolTip"
 Rectangle
 {
     id:root
-    implicitHeight: 50 * cStyle.DPI
-    implicitWidth: 50 * cStyle.DPI
+    implicitHeight: 25 * cStyle.DPI
+    implicitWidth: 25 * cStyle.DPI
     radius: cStyle.RadiusDefault
 
     property alias source: icon.source
@@ -50,11 +50,11 @@ Rectangle
     Canvas {
         id: subMenuIndicator
         visible: root.hasSubMenu
-        width: 6 * cStyle.DPI
+        width: 3 * cStyle.DPI
         height: width
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        anchors.margins: 4 * cStyle.DPI
+        anchors.margins: 2 * cStyle.DPI
         onPaint:
         {
             var ctx = getContext("2d")

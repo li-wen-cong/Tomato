@@ -17,7 +17,7 @@ Item
     signal editingFinished()
 
     implicitWidth: 213
-    implicitHeight: Math.max(42, textInput.implicitHeight + 2 * cStyle.DPI * 5)  // 动态高度
+    implicitHeight: Math.max(42, textInput.implicitHeight + 2 * cStyle.DPI * 2)  // 动态高度
 
     Rectangle
     {
@@ -37,8 +37,8 @@ Item
             left: parent.left
             right: unixText.left
             verticalCenter: parent.verticalCenter
-            leftMargin: cStyle.DPI * 2
-            rightMargin: cStyle.DPI * 2
+            leftMargin: cStyle.DPI * 1
+            rightMargin: cStyle.DPI * 1
         }
         font: cFont.DefaultFont
         color: root.enabled ? cColor.InfoBase : cColor.InfoExtraLight
@@ -66,7 +66,7 @@ Item
         anchors
         {
             right: parent.right
-            rightMargin: cStyle.DPI * 2
+            rightMargin: cStyle.DPI * 1
             verticalCenter: parent.verticalCenter
         }
         visible: root.unix.length > 0

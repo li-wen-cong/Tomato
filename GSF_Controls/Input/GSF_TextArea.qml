@@ -18,7 +18,7 @@ Item
     signal editingFinished()
 
     implicitWidth: 213
-    implicitHeight: Math.max(42, textArea.implicitHeight + 2 * cStyle.DPI * 5)
+    implicitHeight: Math.max(42, textArea.implicitHeight + 2 * cStyle.DPI * 2)
 
     Rectangle
     {

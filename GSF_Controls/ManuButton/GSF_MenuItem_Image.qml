@@ -14,8 +14,8 @@ T.MenuItem
     property string note: ""
     property alias source: _image.source
 
-    implicitWidth: 160 * cStyle.DPI
-    implicitHeight: 40 * cStyle.DPI
+    implicitWidth: 80 * cStyle.DPI
+    implicitHeight: 20 * cStyle.DPI
 
     padding: cStyle.SpacingDefault
 
@@ -62,8 +62,8 @@ T.MenuItem
         anchors.verticalCenter:parent.verticalCenter
         anchors.left:parent.left
         anchors.leftMargin:checkable ? _check.width + control.padding : control.padding
-        width: cStyle.DPI * 20
-        height: cStyle.DPI * 20
+        width: cStyle.DPI * 10
+        height: cStyle.DPI * 10
         color:
         {
             if(!control.enabled)
@@ -81,7 +81,7 @@ T.MenuItem
     {
         id: item_arrow
         visible: control.subMenu
-        height: cStyle.DPI * 25
+        height: cStyle.DPI * 12
         width: height
         anchors.verticalCenter:parent.verticalCenter
         x: parent.width - width
