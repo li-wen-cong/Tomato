@@ -51,7 +51,7 @@ FocusScope
     AnnulusProgressBar
     {
         id:annulusProgressBar
-        width: parent.height * 1.05
+        width: parent.height
         height: width
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
@@ -73,7 +73,7 @@ FocusScope
     }
     Grid
     {
-        width: (parent.width * 0.8 - cStyle.SpacingDefault * 2) / 2
+        width: (parent.width * 0.9 - cStyle.SpacingDefault * 2) / 2
         anchors.right: parent.right
         anchors.rightMargin: cStyle.SpacingDefault
         anchors.verticalCenter: parent.verticalCenter
