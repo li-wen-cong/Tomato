@@ -3,6 +3,7 @@ import QtQuick.Window 2.0
 import "../GSF_Controls/Drag"
 import "../GSF_Controls/Icon"
 import "../GSF_Controls/ToolTip"
+import "../GSF_Controls/Text"
 
 import "./Widget"
 
@@ -16,6 +17,20 @@ FocusScope
     property var control: parent
 
     property bool isHome:true
+
+
+
+    Connections
+    {
+        target: cTomato
+        onTomatoTimeUpdate:
+        {
+            rounds.text = String("%3:%1/%2").arg(cTomato.getCurrentRounds())
+                                            .arg(cTomato.Rounds)
+                                            .arg(qsTr("Rounds"))
+        }
+    }
+
     Rectangle
     {
         width: parent.width
@@ -58,6 +73,16 @@ FocusScope
                 }
             }
         }
+        GSF_Text_Default
+        {
+            id:rounds
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            anchors.leftMargin: cStyle.SpacingDefault
+            visible:fixedButton.fixed
+            color: cColor.BrandDark
+        }
+
         ButtonWidget
         {
             height: 20 * cStyle.DPI
@@ -68,6 +93,7 @@ FocusScope
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.leftMargin: cStyle.SpacingDefault
+            visible:!fixedButton.fixed
             onClicked:
             {
                 if(isHome)
@@ -95,6 +121,7 @@ FocusScope
             anchors.verticalCenter: parent.verticalCenter
             ButtonWidget
             {
+                id:fixedButton
                 height: parent.height
                 width: 25 * cStyle.DPI
                 color: isHover || fixed ? cColor.BrandBase : cColor.BackgroundPage
@@ -105,11 +132,31 @@ FocusScope
                 {
                     if(!fixed)
                     {
+                        //1、修改窗口属性
                         control.flags = control.flags | Qt.WindowStaysOnTopHint
+
+                        //3、加载页面
+                        GSF_Global.singleStackView.pushPage(Qt.resolvedUrl("qrc:/Page/Fixed.qml"),3,200)
+
+                        //2、调整大小
+                        applicationWindow.width = 135
+                        applicationWindow.height = 90
+
+
                     }
                     else
                     {
+                        //1、修改窗口属性
                         control.flags = control.flags & ~Qt.WindowStaysOnTopHint
+
+                        //3、加载页面
+                        GSF_Global.singleStackView.home()
+
+                        //2、调整大小
+                        applicationWindow.width = 240
+                        applicationWindow.height = 320
+
+
                     }
                     fixed = !fixed
                 }
@@ -121,6 +168,7 @@ FocusScope
                 color: isHover ? cColor.BrandBase : cColor.BackgroundPage
                 source: "qrc:/res/7_Min.svg"
                 iconColor:cColor.BrandDark
+                visible:!fixedButton.fixed
                 onClicked:
                 {
                     if(control.visibility === Window.Maximized)
@@ -140,6 +188,7 @@ FocusScope
                 color: isHover ? cColor.DangerBase : cColor.BackgroundPage
                 source: "qrc:/res/4_Close.svg"
                 iconColor:cColor.BrandDark
+                visible:!fixedButton.fixed
                 onClicked:
                 {
                     cApp.quit()

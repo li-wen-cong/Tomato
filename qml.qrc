@@ -60,5 +60,6 @@
         <file>res/wav/Cuckoo only.wav</file>
         <file>res/wav/Jesus College Clock.wav</file>
         <file>GSF_Controls/Slider/GSF_Slider_Vertical.qml</file>
+        <file>Page/Fixed.qml</file>
     </qresource>
 </RCC>

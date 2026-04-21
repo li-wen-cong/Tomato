@@ -19,15 +19,15 @@ Item
 
     property real percent: (value-from)/(to-from) //百分比[0,1]
 
-    property int canvasMargin: 3
+    property int canvasMargin: 0
     property int canvasWidth: width < height ? width : height
     property int canvasRadius: canvasWidth / 2 - canvasMargin
-    property int lineWidth: 6
-    property int lineBorder: 3
+    property int lineWidth: width * 0.05
+    property int lineBorder: lineWidth * 0.6
     property color bgColor: cColor.BrandDark
-    property color valueColor: cColor.BrandLighter
+    property color valueColor: cColor.BackgroundOverlay
     //
-    property real _valueAngle: Math.PI/2+Math.PI*2*percent
+    property real _valueAngle: Math.PI / 2 + Math.PI * 2 * percent
     on_ValueAngleChanged: canvas.requestPaint()
     //
     property real speed: 0.1
@@ -89,16 +89,16 @@ Item
             GSF_Text_Small
             {
                 id: _Stage
-                color: valueColor
+                color: bgColor
                 width: parent.width
-                font.pixelSize: (canvasWidth - lineWidth) / 6;
+                font.pixelSize: (canvasWidth - lineWidth) / 7;
                 font.bold: true
                 horizontalAlignment: Text.AlignHCenter
             }
             GSF_Text_Title
             {
                 id: _Time
-                color: valueColor
+                color: bgColor
                 width: parent.width
                 font.pixelSize: (canvasWidth - lineWidth) / 8;
                 font.bold: true

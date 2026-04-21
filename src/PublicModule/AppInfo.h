@@ -8,7 +8,7 @@
 //版本信息
 #define APP_VERSION_MAJOR 0
 #define APP_VERSION_MINOR 0
-#define APP_VERSION_PATCH 1
+#define APP_VERSION_PATCH 2
 #define APP_VERSION_CODE "Alpha"
 
 //运行平台信息

@@ -17,21 +17,11 @@ FocusScope
         init()
     }
 
-    function timeTransition(ms)
+    onWidthChanged:
     {
-        if (ms <= 0)
-        {
-            return "00:00";
-        }
-
-        var totalSeconds = Math.floor(ms / 1000);
-        var minutes = Math.floor(totalSeconds / 60);
-        var seconds = totalSeconds % 60;
-
-        var minutesStr = minutes.toString().padStart(2, '0');
-        var secondsStr = seconds.toString().padStart(2, '0');
-
-        return minutesStr + ":" + secondsStr;
+        update()
+        volumeRect.width = root.width * 0.08
+        volumeRect.height = volumeRect.width
     }
 
     function init()
@@ -44,8 +34,8 @@ FocusScope
         annulusProgressBar.to = cTomato.Work * 60 * 1000
         annulusProgressBar.stage = qsTr("Work")
         annulusProgressBar.value = 0
-        annulusProgressBar.time = String("%1/%2").arg(timeTransition(annulusProgressBar.value))
-                                                 .arg(timeTransition(annulusProgressBar.to))
+        annulusProgressBar.time = String("%1/%2").arg(GSF_Global.timeTransition(annulusProgressBar.value))
+                                                 .arg(GSF_Global.timeTransition(annulusProgressBar.to))
 
         rounds.text = String("%3:%1/%2").arg(cTomato.getCurrentRounds())
                                         .arg(cTomato.Rounds)
@@ -74,8 +64,8 @@ FocusScope
             }
 
             annulusProgressBar.value = cTomato.getCurrentTime()
-            annulusProgressBar.time = String("%1/%2").arg(timeTransition(annulusProgressBar.value))
-                                                     .arg(timeTransition(annulusProgressBar.to))
+            annulusProgressBar.time = String("%1/%2").arg(GSF_Global.timeTransition(annulusProgressBar.value))
+                                                     .arg(GSF_Global.timeTransition(annulusProgressBar.to))
 
             rounds.text = String("%3:%1/%2").arg(cTomato.getCurrentRounds())
                                             .arg(cTomato.Rounds)
@@ -154,7 +144,7 @@ FocusScope
         anchors.top: annulusProgressBar.bottom
         anchors.topMargin: cStyle.SpacingLarge
         font.bold: true
-        color: annulusProgressBar.valueColor
+        color: annulusProgressBar.bgColor
         font.pixelSize: (annulusProgressBar.canvasWidth - annulusProgressBar.lineWidth) / 8;
     }
     Rectangle
@@ -256,6 +246,7 @@ FocusScope
 
         Rectangle
         {
+            id:volumeRect
             width: root.width * 0.08
             height: width
             color: cColor.BackgroundOverlay
@@ -264,6 +255,7 @@ FocusScope
             anchors.right: parent.right
             anchors.rightMargin: cStyle.SpacingLarge
             clip: true
+
             GSF_Slider_Vertical
             {
                 width: parent.width * 0.9

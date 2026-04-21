@@ -73,4 +73,21 @@ QtObject
     }
 
     property var single_StatusBar_Custom
+
+    function timeTransition(ms)
+    {
+        if (ms <= 0)
+        {
+            return "00:00";
+        }
+
+        var totalSeconds = Math.floor(ms / 1000);
+        var minutes = Math.floor(totalSeconds / 60);
+        var seconds = totalSeconds % 60;
+
+        var minutesStr = minutes.toString().padStart(2, '0');
+        var secondsStr = seconds.toString().padStart(2, '0');
+
+        return minutesStr + ":" + secondsStr;
+    }
 }
